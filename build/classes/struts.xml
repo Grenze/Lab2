@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE struts PUBLIC  
+    "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"  
+    "http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+	
+	<package name="struts2"  extends="struts-default">
+		<action name = "inputMessage" class = "example.struts2.inputMessage">
+			<result name = "success">/inputMessage.jsp</result>
+			<result name = "error">/inputMessage.jsp</result>
+		</action>
+		
+		<action name="author_books" class="example.struts2.Author_Books">
+			<result name = "success">/booklist.jsp</result>
+			<result name = "input" type="chain">inputMessage</result>
+			<result name = "error">/noMessage.jsp</result>
+		</action>
+
+		<action name="add_newauthor" class="example.struts2.Add_author">
+			<result name = "success">/add_book_done.jsp</result>
+			<result name = "null">/Update_book_done.jsp</result>
+			<result name = "error">/noMessage.jsp</result>
+		</action>
+		
+		<action name="viewbook" class="example.struts2.viewbook">
+			<result name = "success">/viewbook_info.jsp</result>
+			<result name = "error">/noMessage.jsp</result>
+		</action>
+		
+		<action name="deleteBook" class="example.struts2.deleteBook">
+			<result name = "success">/delete_book_done.jsp</result>
+			<result name = "error">/noMessage.jsp</result>
+		</action>
+				
+		<action name="add_newbook" class="example.struts2.add_newbook">
+			<result name = "success">/add_book_done.jsp</result>
+			<result name = "input" type="chain">inputMessage</result>
+			<result name = "null">/add_author.jsp</result>
+			<result name = "error">/noMessage.jsp</result>
+		</action>
+		
+		<action name="update_book" class="example.struts2.Update_book">
+			<result name = "success">/Update_book_done.jsp</result>
+			<result name = "null">/add_author.jsp</result>
+			<result name = "input" type="chain">inputMessage</result>
+			<result name = "error">/noMessage.jsp</result>
+		</action>
+	</package>
+</struts>  
